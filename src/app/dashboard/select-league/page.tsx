@@ -122,7 +122,7 @@ export default function SelectLeague() {
             {selectLeagueSeasons?.map(({ year }) => (
               <li key={year}>
                 <Link
-                  href={`/dashboard/select-team?country_code=${selected}&year=${year}`}
+                  href={`/dashboard/select-team?country_code=${selected}&season=${year}`}
                   className="inline-block w-full rounded-lg bg-gray-400 p-2 text-center font-alt hover:bg-gray-500/50"
                 >
                   {year}

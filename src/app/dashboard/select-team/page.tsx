@@ -29,7 +29,7 @@ interface Team {
 }
 
 export default function SelectLeague() {
-  const season = useSearchParams().get('year')
+  const season = useSearchParams().get('season')
   const league = useSearchParams().get('league_id')
 
   const [search, setSearch] = useState<string | null>(null)
@@ -81,7 +81,7 @@ export default function SelectLeague() {
         {filtered.map(({ team }, index) => (
           <li key={index}>
             <Link
-              href={`/dashboard/team?team_code=${team.id}`}
+              href={`/dashboard/team?team_code=${team.id}&league=${league}&season=${season}`}
               className="flex flex-col items-center justify-center rounded-lg border-2 border-transparent bg-gray-300 p-2 text-center transition hover:border-green-500"
             >
               <Image width={64} height={64} src={team.logo} alt="" />
