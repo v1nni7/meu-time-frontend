@@ -4,6 +4,7 @@ import { GoalMinutesChart } from '@/components/GoalMinutesChart'
 
 export default function Team() {
   const goalMinutes = statistics.goals.for.minute
+  const fixtures = statistics.fixtures
 
   return (
     <>
@@ -13,8 +14,79 @@ export default function Team() {
             <GoalMinutesChart goalMinutes={goalMinutes} />
           </div>
         </div>
-        <div className="grid-span-1">
-          <div className="mt-4 rounded-lg bg-neutral-200 p-2 shadow"></div>
+        <div className="grid-span-1 gap-y-4">
+          <div className="mt-4 rounded-lg bg-neutral-200 shadow">
+            <table className="w-full table-auto">
+              <thead>
+                <tr>
+                  <th className="p-3"></th>
+                  <th className="p-3">Casa</th>
+                  <th className="p-3">Fora</th>
+                  <th className="p-3">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="rounded-lg bg-neutral-100">
+                  <td className="p-3" scope="col">
+                    Jogados
+                  </td>
+                  <td className="p-3 text-center font-alt">
+                    {fixtures.played.home}
+                  </td>
+                  <td className="p-3 text-center font-alt">
+                    {fixtures.played.away}
+                  </td>
+                  <td className="p-3 text-center font-alt">
+                    {fixtures.played.total}
+                  </td>
+                </tr>
+                <tr>
+                  <td className="p-3" scope="col">
+                    Vencidos
+                  </td>
+                  <td className="p-3 text-center font-alt">
+                    {fixtures.wins.home}
+                  </td>
+                  <td className="p-3 text-center font-alt">
+                    {fixtures.wins.away}
+                  </td>
+                  <td className="p-3 text-center font-alt">
+                    {fixtures.wins.total}
+                  </td>
+                </tr>
+                <tr className="bg-neutral-100">
+                  <td className="p-3" scope="col">
+                    Perdidos
+                  </td>
+                  <td className="p-3 text-center font-alt">
+                    {fixtures.loses.home}
+                  </td>
+                  <td className="p-3 text-center font-alt">
+                    {fixtures.loses.away}
+                  </td>
+                  <td className="p-3 text-center font-alt">
+                    {fixtures.loses.total}
+                  </td>
+                </tr>
+                <tr>
+                  <td className="p-2" scope="col">
+                    Empatados
+                  </td>
+                  <td className="p-2 text-center font-alt">
+                    {fixtures.draws.home}
+                  </td>
+                  <td className="p-2 text-center font-alt">
+                    {fixtures.draws.away}
+                  </td>
+                  <td className="p-2 text-center font-alt">
+                    {fixtures.draws.total}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="bg-red p-2"></div>
         </div>
       </div>
     </>
