@@ -1,3 +1,50 @@
+export interface Country {
+  name: string
+  code: string
+  flag: string
+}
+
+export interface League {
+  league: {
+    id: number
+    name: string
+    type: string
+    logo: string
+  }
+  country: {
+    name: string
+    code: string
+    flag: string
+  }
+  seasons: {
+    year: number
+    start: string
+    end: string
+    current: boolean
+  }[]
+}
+
+export interface Team {
+  team: {
+    id: number
+    name: string
+    code: string
+    country: string
+    founded: number
+    national: boolean
+    logo: string
+  }
+  venue: {
+    id: number
+    name: string
+    address: string
+    city: string
+    capacity: number
+    surface: string
+    image: string
+  }
+}
+
 export interface Statistics {
   league: {
     id: number
@@ -249,4 +296,22 @@ export interface Statistics {
       }
     }
   }
+}
+
+export interface Players {
+  id: number
+  name: string
+  age: number
+  number: number | null
+  position: string
+  photo: string
+}
+
+export interface playersResponse {
+  team: {
+    id: number
+    name: string
+    logo: string
+  }
+  players: Players[]
 }

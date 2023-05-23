@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export function middleware(request: NextRequest) {
-  const user = JSON.parse(request.cookies.get('user')?.value as any)
-
+  const token = request.cookies.get('token')?.value
   const redirectURL = new URL('/', request.url)
 
-  if (!user?.isAuthenticated) {
+  if (!token) {
     return NextResponse.redirect(redirectURL, {
       headers: {
         'Set-Cookie': `redirectTo=${request.url}; path=/; httpOnly; max-age=60`,
@@ -17,5 +16,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/dashboard',
+  matcher: '/statistics/:path*',
 }

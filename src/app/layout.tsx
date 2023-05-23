@@ -21,9 +21,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-br">
       <body className={`${roboto.variable} ${baiJamjuree.variable} font-sans`}>
-        <div className="flex h-screen items-center justify-center">
-          <div className="h-5/6 w-5/6 overflow-hidden rounded-lg bg-neutral-100 shadow-lg">
-            <div className="grid h-full grid-cols-6">{children}</div>
+        <div className="container mx-auto flex h-screen">
+          <div className="my-12 flex w-full rounded-lg md:bg-neutral-100 md:shadow ">
+            {children}
           </div>
         </div>
       </body>

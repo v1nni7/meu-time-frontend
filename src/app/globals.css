@@ -6,3 +6,27 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;  
 }
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-neutral-300) var(--bg-neutral-300);
+}
+
+// Chrome, Edge, and Safari
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 6px;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ff7bbd;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+}
+
+*::-webkit-scrollbar-corner {
+  display: none;
+}

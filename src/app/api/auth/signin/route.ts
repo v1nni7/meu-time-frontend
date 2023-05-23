@@ -27,16 +27,11 @@ export async function GET(request: NextRequest) {
       return NextResponse.redirect(redirectURL)
     }
 
-    const user = JSON.stringify({
-      isAuthenticated: true,
-      ...data.response.account,
-    })
-
     const cookieExpiresInSeconds = 60 * 60 * 24 * 30
 
-    return NextResponse.redirect(`${redirectURL}/dashboard`, {
+    return NextResponse.redirect(`${redirectURL}/statistics`, {
       headers: {
-        'Set-Cookie': `user=${user}; Path=/; max-age=${cookieExpiresInSeconds}`,
+        'Set-Cookie': `token=${accessToken}; Path=/; max-age=${cookieExpiresInSeconds}`,
       },
     })
   } catch (error) {
