@@ -16,3 +16,32 @@ Projeto desenvolvido com as seguintes tecnologias:
   <li>TailwindCSS</li>
   <li>TypeScript</li>
 </ul>
+
+## ⚙️ Instalação
+
+Siga os passos abaixo para instalar o projeto
+
+1. Faça um clone do projeto
+```
+$ git clone https://github.com/v1nni7/meu-time-frontend.git
+```
+
+2. Navegue para a pasta do projeto
+```
+$ cd ./meu-time-frontend
+```
+
+3. Instale as dependências do projeto
+```
+$ npm install
+```
+
+4. Execute o projeto
+```
+$ npm run dev
+```
+
+5. Abra o projeto em seu navegador
+```
+[http://localhost:3000]
+```

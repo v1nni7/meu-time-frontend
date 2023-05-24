@@ -8,7 +8,7 @@ export default function StatisticsLayout({ children }: PropsWithChildren) {
       <Sidebar />
 
       <TeamProvider>
-        <div className="grid grid-rows-[40px_minmax(40px,_1fr)_0] overflow-hidden p-2">
+        <div className="grid grid-rows-[64px_minmax(40px,_1fr)_0] overflow-hidden p-2">
           {children}
         </div>
       </TeamProvider>

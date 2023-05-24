@@ -7,6 +7,7 @@ import { Statistics } from '@/types/apiFootballTypes'
 import { api } from '@/lib/api'
 import ResultTable from '@/components/ResultTable'
 import { GoalMinutesChart } from '@/components/GoalMinutesChart'
+import Link from 'next/link'
 
 export default function StatisticsPage() {
   const { selectedOptions } = useContext(TeamContext)
@@ -46,7 +47,14 @@ export default function StatisticsPage() {
 
   return (
     <>
-      <div className="">Selecionar outro país</div>
+      <div className="flex items-center">
+        <Link
+          href="/statistics/countries"
+          className="inline-block rounded-lg bg-green-600 p-2 font-alt text-white outline-none transition hover:bg-green-700 focus:bg-green-700"
+        >
+          Selecionar outro país
+        </Link>
+      </div>
 
       <div className="grid grid-cols-2 gap-4">
         <div className="flex flex-col gap-4">
