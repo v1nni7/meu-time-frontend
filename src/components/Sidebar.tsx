@@ -1,4 +1,4 @@
-import { Users2 } from 'lucide-react'
+import { Home, Users2 } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Sidebar() {
@@ -9,7 +9,15 @@ export default function Sidebar() {
       </h2>
 
       <ul className="flex flex-col gap-4 p-2">
-        <li className="">
+        <li className="px-2">
+          <Link
+            href="/statistics"
+            className="flex items-center rounded-lg p-2 font-alt text-xl text-white hover:bg-gray-500"
+          >
+            <Home className="mr-2" /> Inicio
+          </Link>
+        </li>
+        <li className="px-2">
           <Link
             href="/statistics/players"
             className="flex items-center rounded-lg p-2 font-alt text-xl text-white hover:bg-gray-500"

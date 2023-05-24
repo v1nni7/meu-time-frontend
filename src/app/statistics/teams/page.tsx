@@ -8,6 +8,7 @@ import { api } from '@/lib/api'
 import { Team } from '@/types/apiFootballTypes'
 import { TeamContext } from '@/context/TeamContext'
 import BackButton from '@/components/BackButton'
+import Loading from '@/components/Loading'
 
 export default function Teams() {
   const router = useRouter()
@@ -18,11 +19,11 @@ export default function Teams() {
   const country = useSearchParams().get('country')
 
   const [search, setSearch] = useState('')
-  const [teams, setTeams] = useState<Team[]>([])
+  const [teams, setTeams] = useState<Team[] | null>(null)
 
   const filtered =
     search.length > 0
-      ? teams.filter(({ team }) =>
+      ? teams?.filter(({ team }) =>
           team.name.toLowerCase().includes(search.toLowerCase()),
         )
       : teams
@@ -85,27 +86,31 @@ export default function Teams() {
           className="rounded-lg border-2 border-gray-200 p-3 text-xl outline-none transition-colors focus:border-green-600"
         />
 
-        <div className="grid grid-cols-6 gap-4 overflow-y-scroll">
-          {filtered.map(({ team }, index) => (
-            <button
-              key={index}
-              onClick={() => handleSelectTeam(team.id)}
-              className="flex flex-col items-center gap-4 rounded-lg bg-gray-300 p-4 transition-colors hover:bg-gray-400"
-            >
-              {team.logo && (
-                <Image
-                  width={64}
-                  height={64}
-                  alt=""
-                  src={team.logo}
-                  className=""
-                />
-              )}
+        {!teams ? (
+          <Loading />
+        ) : (
+          <div className="grid grid-cols-6 gap-4 overflow-y-scroll">
+            {filtered?.map(({ team }, index) => (
+              <button
+                key={index}
+                onClick={() => handleSelectTeam(team.id)}
+                className="flex flex-col items-center gap-4 rounded-lg bg-gray-300 p-4 transition-colors hover:bg-gray-400"
+              >
+                {team.logo && (
+                  <Image
+                    width={64}
+                    height={64}
+                    alt=""
+                    src={team.logo}
+                    className=""
+                  />
+                )}
 
-              <h2 className="text-center font-alt">{team.name}</h2>
-            </button>
-          ))}
-        </div>
+                <h2 className="text-center font-alt">{team.name}</h2>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </>
   )
