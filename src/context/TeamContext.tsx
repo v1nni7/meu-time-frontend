@@ -17,7 +17,12 @@ interface TeamContextProps {
 export const TeamContext = createContext({} as TeamContextProps)
 
 export function TeamProvider({ children }: PropsWithChildren) {
-  const initialState = { country: '', league: '', season: '', team: '' }
+  const initialState = JSON.parse(localStorage.getItem('options') as any) || {
+    country: '',
+    league: '',
+    season: '',
+    team: '',
+  }
 
   const [selectedOptions, setSelectedOptions] = useState(initialState)
 

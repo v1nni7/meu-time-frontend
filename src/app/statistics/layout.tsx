@@ -1,6 +1,5 @@
 import { PropsWithChildren } from 'react'
 import Sidebar from '@/components/Sidebar'
-import BackButton from '@/components/BackButton'
 import { TeamProvider } from '@/context/TeamContext'
 
 export default function StatisticsLayout({ children }: PropsWithChildren) {
