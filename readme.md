@@ -43,5 +43,5 @@ $ npm run dev
 
 5. Abra o projeto em seu navegador
 ```
-[http://localhost:3000]
+http://localhost:3000
 ```
